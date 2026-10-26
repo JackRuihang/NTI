@@ -29,14 +29,34 @@ Asset checksums are listed in [ASSET_CHECKSUMS.md](ASSET_CHECKSUMS.md).
 
 ## Checkpoints
 
-The NTI-S/B/L inference checkpoints are not included in the Git source tree.
-All three checkpoints will be made available in a subsequent release, with
-download links provided here.
+The NTI-S/B/L 250K-step generator inference checkpoints are available in
+[Releases](https://github.com/JackRuihang/NTI/releases/tag/v0.1.0), separately from
+the Git source tree, under the MIT License.
 
-Once released, place the checkpoints at `weights/nti_s_250k.pt`,
-`weights/nti_b_250k.pt`, and `weights/nti_l_250k.pt` to use the sampling commands
-below. These are 250K-step inference weights, not training-resume checkpoints.
-The tokenizer is downloaded separately as described above.
+| Model | Generator parameters | Download |
+|---|---:|---|
+| NTI-S | 218,396,416 | [nti_s_250k.pt](https://github.com/JackRuihang/NTI/releases/download/v0.1.0/nti_s_250k.pt) |
+| NTI-B | 260,922,880 | [nti_b_250k.pt](https://github.com/JackRuihang/NTI/releases/download/v0.1.0/nti_b_250k.pt) |
+| NTI-L | 461,667,328 | [nti_l_250k.pt](https://github.com/JackRuihang/NTI/releases/download/v0.1.0/nti_l_250k.pt) |
+
+Download and verify the files before sampling:
+
+```bash
+mkdir -p weights
+cd weights
+curl -fL -o nti_s_250k.pt https://github.com/JackRuihang/NTI/releases/download/v0.1.0/nti_s_250k.pt
+curl -fL -o nti_b_250k.pt https://github.com/JackRuihang/NTI/releases/download/v0.1.0/nti_b_250k.pt
+curl -fL -o nti_l_250k.pt https://github.com/JackRuihang/NTI/releases/download/v0.1.0/nti_l_250k.pt
+curl -fL -o SHA256SUMS.txt https://github.com/JackRuihang/NTI/releases/download/v0.1.0/SHA256SUMS.txt
+sha256sum -c SHA256SUMS.txt
+cd ..
+```
+
+The files are unchanged inference exports containing model weights, configuration,
+and training step. They do not contain optimizer or replay state and cannot resume
+training. The frozen tokenizer is not included and must be obtained separately as
+described above. File sizes and hashes are also provided in the release's
+`checkpoint_manifest.json`.
 
 ## Train
 
