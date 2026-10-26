@@ -108,3 +108,10 @@ OMP_NUM_THREADS=2 python -m pytest -q tests
 
 Use the provided YAML configurations and prepare token/replay caches with the
 scripts above. The tokenizer and ADM evaluator retain their original licenses.
+
+## License
+
+Our original NTI contributions and released NTI-S/B/L generator checkpoints are
+provided under the [MIT License](LICENSE), which permits commercial use.
+Third-party components and assets retain their original terms; see
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
