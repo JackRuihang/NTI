@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nti"
+version = "0.1.0"
+description = "NTI training and evaluation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "Pillow>=9", "PyYAML>=6", "torch>=2.4", "omegaconf>=2.3", "einops>=0.7", "timm>=0.9"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+data = ["pyarrow>=14"]
+
+[tool.setuptools.packages.find]
+include = ["nti*"]
